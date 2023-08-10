@@ -3,14 +3,19 @@ import PropTypes from "prop-types";
 import { gsap } from "gsap";
 import logo from "../assets/image/logo/logo.png";
 
-export const Navbar = ({ isMenuVisible, onMenuButtonClick }) => {
+export const Navbar = ({
+    isMenuVisible,
+    onMenuButtonClick,
+    isAboutVisible,
+    onAboutButtonClick,
+}) => {
     const navbarRef = useRef();
     const menuOpenCtrlRef = useRef(null);
     const aboutOpenCtrlRef = useRef(null);
     const headingRef = useRef(null);
 
     useEffect(() => {
-        if (isMenuVisible) {
+        if (isMenuVisible || isAboutVisible) {
             navbarRef.current.classList.add("navbar-close");
             gsap.timeline({ defaults: { duration: 0.7, ease: "power2" } }).to(
                 [
@@ -49,7 +54,7 @@ export const Navbar = ({ isMenuVisible, onMenuButtonClick }) => {
                     }
                 );
         }
-    }, [isMenuVisible]);
+    }, [isMenuVisible, isAboutVisible]);
 
     return (
         <>
@@ -70,7 +75,11 @@ export const Navbar = ({ isMenuVisible, onMenuButtonClick }) => {
                         </span>
                     </button>
                     <button className="menu-link oh unbutton">
-                        <span className="oh__inner" ref={aboutOpenCtrlRef}>
+                        <span
+                            className="oh__inner"
+                            ref={aboutOpenCtrlRef}
+                            onClick={onAboutButtonClick}
+                        >
                             About
                         </span>
                     </button>
@@ -83,4 +92,6 @@ export const Navbar = ({ isMenuVisible, onMenuButtonClick }) => {
 Navbar.propTypes = {
     isMenuVisible: PropTypes.bool.isRequired,
     onMenuButtonClick: PropTypes.func.isRequired,
+    isAboutVisible: PropTypes.bool.isRequired,
+    onAboutButtonClick: PropTypes.func.isRequired,
 };
