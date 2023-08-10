@@ -37,6 +37,9 @@ export const Menu = ({ isMenuVisible, onMenuButtonClick }) => {
     });
 
     const closeMenu = () => {
+        ohInnerRef.current.forEach((el) => {
+            el.classList.remove("menu--open");
+        });
         gsap.timeline({ defaults: { duration: 0.7, ease: "power2" } }).to(
             [menuCloseCtrlRef.current, ohInnerRef.current],
             {
@@ -103,7 +106,8 @@ export const Menu = ({ isMenuVisible, onMenuButtonClick }) => {
                 className="close close--menu oh unbutton"
                 aria-label="Close menu"
                 onClick={() => {
-                    closeMenu(); onMenuButtonClick();
+                    closeMenu();
+                    onMenuButtonClick();
                 }}
             >
                 <span className="oh__inner" ref={menuCloseCtrlRef}>
