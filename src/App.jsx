@@ -32,7 +32,10 @@ function App() {
                 isAboutVisible={isAboutVisible}
                 onAboutButtonClick={toggleAbout}
             />
-            <Footer isMenuVisible={isMenuVisible} />
+            <Footer
+                isMenuVisible={isMenuVisible}
+                isAboutVisible={isAboutVisible}
+            />
         </>
     );
 }
