@@ -4,9 +4,9 @@ import { gsap } from "gsap";
 import logo from "../assets/image/logo/logo.png";
 
 export const Navbar = ({
-    isMenuVisible,
+    isNavVisible,
+    onNavButtonClick,
     onMenuButtonClick,
-    isAboutVisible,
     onAboutButtonClick,
 }) => {
     const navbarRef = useRef();
@@ -15,20 +15,7 @@ export const Navbar = ({
     const headingRef = useRef(null);
 
     useEffect(() => {
-        if (isMenuVisible || isAboutVisible) {
-            navbarRef.current.classList.add("navbar-close");
-            gsap.timeline({ defaults: { duration: 0.7, ease: "power2" } }).to(
-                [
-                    menuOpenCtrlRef.current,
-                    aboutOpenCtrlRef.current,
-                    headingRef.current,
-                ],
-                {
-                    y: "-150%",
-                    rotate: -5,
-                }
-            );
-        } else {
+        if (isNavVisible) {
             navbarRef.current.classList.remove("navbar-close");
             gsap.timeline({ defaults: { duration: 1.2, ease: "expo" } })
                 .set(
@@ -53,8 +40,21 @@ export const Navbar = ({
                         rotate: 0,
                     }
                 );
+        } else {
+            navbarRef.current.classList.add("navbar-close");
+            gsap.timeline({ defaults: { duration: 0.7, ease: "power2" } }).to(
+                [
+                    menuOpenCtrlRef.current,
+                    aboutOpenCtrlRef.current,
+                    headingRef.current,
+                ],
+                {
+                    y: "-150%",
+                    rotate: -5,
+                }
+            );
         }
-    }, [isMenuVisible, isAboutVisible]);
+    }, [isNavVisible]);
 
     return (
         <>
@@ -69,7 +69,10 @@ export const Navbar = ({
                         <span
                             className="oh__inner"
                             ref={menuOpenCtrlRef}
-                            onClick={onMenuButtonClick}
+                            onClick={() => {
+                                onMenuButtonClick();
+                                onNavButtonClick();
+                            }}
                         >
                             Projects
                         </span>
@@ -78,7 +81,10 @@ export const Navbar = ({
                         <span
                             className="oh__inner"
                             ref={aboutOpenCtrlRef}
-                            onClick={onAboutButtonClick}
+                            onClick={() => {
+                                onAboutButtonClick();
+                                onNavButtonClick();
+                            }}
                         >
                             About
                         </span>
@@ -90,6 +96,8 @@ export const Navbar = ({
 };
 
 Navbar.propTypes = {
+    isNavVisible: PropTypes.bool.isRequired,
+    onNavButtonClick: PropTypes.func.isRequired,
     isMenuVisible: PropTypes.bool.isRequired,
     onMenuButtonClick: PropTypes.func.isRequired,
     isAboutVisible: PropTypes.bool.isRequired,

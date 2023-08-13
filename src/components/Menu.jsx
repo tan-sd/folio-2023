@@ -2,11 +2,18 @@ import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { gsap } from "gsap";
 
-export const Menu = ({ isMenuVisible, onMenuButtonClick }) => {
+export const Menu = ({
+    onNavButtonClick,
+    isMenuVisible,
+    onMenuButtonClick,
+    projectsData,
+    selectedProject,
+    onProjectButtonClick,
+}) => {
     const menuRef = useRef();
     const ohInnerRef = useRef([]);
     const menuCloseCtrlRef = useRef();
-    const isAnimating = true;
+    const isAnimating = false;
 
     useEffect(() => {
         // gsap.set(menuRef.current, {
@@ -34,7 +41,7 @@ export const Menu = ({ isMenuVisible, onMenuButtonClick }) => {
                     },
                 });
         }
-    });
+    }, [isMenuVisible]);
 
     const closeMenu = () => {
         ohInnerRef.current.forEach((el) => {
@@ -53,61 +60,37 @@ export const Menu = ({ isMenuVisible, onMenuButtonClick }) => {
         );
     };
 
+    useEffect(() => {
+        if (selectedProject !== null) {
+            closeMenu();
+        }
+    }, [selectedProject]);
+
     return (
         <div className="menu-container" ref={menuRef}>
             <nav className="menu">
-                <span className="menu__item oh">
-                    <button
-                        className="menu__item-link oh__inner"
-                        ref={(el) => (ohInnerRef.current[0] = el)}
-                        disabled={isAnimating}
-                    >
-                        PokéGen
-                    </button>
-                </span>
-                <span className="menu__item oh">
-                    <button
-                        className="menu__item-link oh__inner"
-                        ref={(el) => (ohInnerRef.current[1] = el)}
-                        disabled={isAnimating}
-                    >
-                        BOJIO
-                    </button>
-                </span>
-                <span className="menu__item oh">
-                    <button
-                        className="menu__item-link oh__inner"
-                        ref={(el) => (ohInnerRef.current[2] = el)}
-                        disabled={isAnimating}
-                    >
-                        MERNfolio
-                    </button>
-                </span>
-                <span className="menu__item oh">
-                    <button
-                        className="menu__item-link oh__inner"
-                        ref={(el) => (ohInnerRef.current[3] = el)}
-                        disabled={isAnimating}
-                    >
-                        MakanBoleh
-                    </button>
-                </span>
-                <span className="menu__item oh">
-                    <button
-                        className="menu__item-link oh__inner"
-                        ref={(el) => (ohInnerRef.current[4] = el)}
-                        disabled={isAnimating}
-                    >
-                        Tasktopia
-                    </button>
-                </span>
+                {projectsData.map((project, index) => (
+                    <span className="menu__item oh" key={index}>
+                        <button
+                            className="menu__item-link oh__inner"
+                            ref={(el) => (ohInnerRef.current[index] = el)}
+                            disabled={isAnimating}
+                            onClick={() => {
+                                onProjectButtonClick(project.name);
+                                onMenuButtonClick();
+                            }}
+                        >
+                            {project.name}
+                        </button>
+                    </span>
+                ))}
             </nav>
             <button
-                className="close close--menu oh unbutton"
-                aria-label="Close menu"
+                className="close oh unbutton"
                 onClick={() => {
                     closeMenu();
                     onMenuButtonClick();
+                    onNavButtonClick();
                 }}
             >
                 <span className="oh__inner" ref={menuCloseCtrlRef}>
@@ -119,6 +102,9 @@ export const Menu = ({ isMenuVisible, onMenuButtonClick }) => {
 };
 
 Menu.propTypes = {
+    onNavButtonClick: PropTypes.func.isRequired,
     isMenuVisible: PropTypes.bool.isRequired,
     onMenuButtonClick: PropTypes.func.isRequired,
+    projectsData: PropTypes.array.isRequired,
+    onProjectButtonClick: PropTypes.func.isRequired,
 };
