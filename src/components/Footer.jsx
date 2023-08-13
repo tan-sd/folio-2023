@@ -2,21 +2,12 @@ import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { gsap } from "gsap";
 
-export const Footer = ({ isMenuVisible, isAboutVisible }) => {
+export const Footer = ({ isNavVisible }) => {
     const footerWrapRef = useRef();
     const footerRef = useRef(null);
 
     useEffect(() => {
-        if (isMenuVisible || isAboutVisible) {
-            footerWrapRef.current.classList.add("navbar-close");
-            gsap.timeline({ defaults: { duration: 0.7, ease: "power2" } }).to(
-                [footerRef.current],
-                {
-                    y: "-150%",
-                    rotate: -5,
-                }
-            );
-        } else {
+        if (isNavVisible) {
             footerWrapRef.current.classList.remove("navbar-close");
             gsap.timeline({ defaults: { duration: 1.2, ease: "expo" } })
                 .set(footerRef.current, {
@@ -27,8 +18,17 @@ export const Footer = ({ isMenuVisible, isAboutVisible }) => {
                     y: "0%",
                     rotate: 0,
                 });
+        } else {
+            footerWrapRef.current.classList.add("navbar-close");
+            gsap.timeline({ defaults: { duration: 0.7, ease: "power2" } }).to(
+                [footerRef.current],
+                {
+                    y: "-150%",
+                    rotate: -5,
+                }
+            );
         }
-    }, [isMenuVisible, isAboutVisible]);
+    }, [isNavVisible]);
 
     return (
         <div className="footer oh" ref={footerWrapRef}>
@@ -40,6 +40,5 @@ export const Footer = ({ isMenuVisible, isAboutVisible }) => {
 };
 
 Footer.propTypes = {
-    isMenuVisible: PropTypes.bool.isRequired,
-    isAboutVisible: PropTypes.bool.isRequired,
+    isNavVisible: PropTypes.bool.isRequired,
 };
