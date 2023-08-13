@@ -4,7 +4,11 @@ import { gsap } from "gsap";
 import SplitType from "split-type";
 import wavinghand from "../assets/image/emoji/waving-hand.png";
 
-export const About = ({ isAboutVisible, onAboutButtonClick }) => {
+export const About = ({
+    onNavButtonClick,
+    isAboutVisible,
+    onAboutButtonClick,
+}) => {
     const aboutWrapRef = useRef();
     const buttonWrapRef = useRef();
     const aboutTitleRef = useRef();
@@ -101,7 +105,7 @@ export const About = ({ isAboutVisible, onAboutButtonClick }) => {
                             alt="waving-hand"
                             style={{ height: "0.9em" }}
                         />
-                        , I'm
+                        , I&apos;m
                         <span className="about-name"> Sheng Da</span>
                         {/* <div className="tooltip">
                             You can also call me Caleb!
@@ -110,7 +114,7 @@ export const About = ({ isAboutVisible, onAboutButtonClick }) => {
                 </div>
                 <div className="about-text oh">
                     <p ref={aboutTextRef}>
-                        I'm a penultimate student at Singapore Management
+                        I&apos;m a penultimate student at Singapore Management
                         University, pursuing a Bachelor in Information Systems.
                         With a diploma in Arts and Theatre Management from
                         Republic Polytechnic, I bring a unique blend of
@@ -189,6 +193,7 @@ export const About = ({ isAboutVisible, onAboutButtonClick }) => {
                 onClick={() => {
                     closeAbout();
                     onAboutButtonClick();
+                    onNavButtonClick();
                 }}
             >
                 <span className="oh__inner" ref={aboutCloseCtrlRef}>
@@ -200,6 +205,7 @@ export const About = ({ isAboutVisible, onAboutButtonClick }) => {
 };
 
 About.propTypes = {
+    onNavButtonClick: PropTypes.func.isRequired,
     isAboutVisible: PropTypes.bool.isRequired,
     onAboutButtonClick: PropTypes.func.isRequired,
 };
