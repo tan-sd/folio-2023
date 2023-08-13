@@ -4,7 +4,7 @@ import { Menu } from "./components/Menu";
 import { Project } from "./components/Project";
 import { About } from "./components/About";
 import { Footer } from "./components/Footer";
-import { CloseProject } from "./components/closeProject";
+import { CloseProject } from "./components/CloseProject";
 
 import { projectsData } from "./utils/projectsData";
 
