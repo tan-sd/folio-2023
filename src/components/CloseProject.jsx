@@ -62,6 +62,7 @@ export const CloseProject = ({
 };
 
 CloseProject.propTypes = {
+    selectedProject: PropTypes.string,
     onProjectButtonClick: PropTypes.func.isRequired,
     onMenuButtonClick: PropTypes.func.isRequired,
 };

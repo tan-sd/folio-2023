@@ -106,5 +106,6 @@ Menu.propTypes = {
     isMenuVisible: PropTypes.bool.isRequired,
     onMenuButtonClick: PropTypes.func.isRequired,
     projectsData: PropTypes.array.isRequired,
+    selectedProject: PropTypes.string,
     onProjectButtonClick: PropTypes.func.isRequired,
 };
