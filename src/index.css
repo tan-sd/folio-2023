@@ -104,6 +104,13 @@ html {
     width: 100%;
 }
 
+.menu--open,
+.about--open,
+.project--open {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+}
+
 /**
  * Navbar
  */
@@ -171,11 +178,6 @@ html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.menu--open, .about--open {
-    pointer-events: auto !important;
-    opacity: 1 !important;
 }
 
 .menu__item {
@@ -267,6 +269,100 @@ html {
 /* */
 
 /**
+ * Project
+ */
+
+.project__container {
+    position: absolute;
+    top: 40%;
+    padding: 0 0 0 1.5rem;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.project__content {
+    /* padding: 1.5rem 1.5rem 2rem 1.5rem;
+    margin: 0 auto;
+    position: relative;
+    bottom: 10%; */
+}
+
+.project__content-title {
+    margin: 0;
+    font-size: var(--font-size-xlarge);
+    letter-spacing: var(--letter-spacing);
+    font-family: sf-pro-display-bold;
+}
+
+.project__context-text {
+  line-height: 1;
+  max-width: 640px !important;
+  font-size: var(--font-size-medium);
+}
+
+.project__content-tools-title {
+  font-size: var(--font-size-small);
+}
+
+.project__content-tools {
+  padding-left: 0px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  width: 19.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.project__content-tools li {
+  flex-basis: 30%;
+  margin-bottom: 10px;
+}
+
+.project__content-tools li div img {
+  vertical-align: middle;
+}
+
+.project__content-link {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: var(--font-size-small);
+  margin-right: 1em;
+  font-family: sf-pro-display-bold;
+  /* margin-top: 15px; */
+}
+
+.project__content-link::after {
+	content: "";
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	width: 0%;
+	height: 2px;
+  background-color: black;
+  transition: width 0.3s ease-in-out;
+}
+
+.project__content-link:hover {
+	color: var(--color-hover);
+}
+
+.project__content-link:hover::after {
+	background-color: var(--color-hover);
+  width: 100%;
+}
+
+.project__content-close {
+  opacity: 0;
+}
+
+/* */
+
+/**
  * About
  */
 
@@ -279,15 +375,15 @@ html {
 }
 
 .about {
-  position: absolute;
-  top: 30%;
-  margin-left: 1.5rem;
+    position: absolute;
+    top: 30%;
+    margin-left: 1.5rem;
 }
 
 .about-title {
-  font-size: var(--font-size-xlarge);
-  letter-spacing: var(--letter-spacing);
-  font-family: sf-pro-display-bold;
+    font-size: var(--font-size-xlarge);
+    letter-spacing: var(--letter-spacing);
+    font-family: sf-pro-display-bold;
 }
 
 .about-name {
