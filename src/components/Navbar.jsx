@@ -74,7 +74,7 @@ export const Navbar = ({
                                 onNavButtonClick();
                             }}
                         >
-                            Projects
+                            PROJECTS
                         </span>
                     </button>
                     <button className="menu-link oh unbutton">
@@ -86,7 +86,7 @@ export const Navbar = ({
                                 onNavButtonClick();
                             }}
                         >
-                            About
+                            ABOUT
                         </span>
                     </button>
                 </div>
