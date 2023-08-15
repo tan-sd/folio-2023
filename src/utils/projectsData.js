@@ -1,3 +1,17 @@
+import { fetchPokemon } from "./fetchPokemon";
+import bojioLogoImg from "../assets/image/projects/bojio/bojio-logo.png";
+import makanbolehLogoImg from "../assets/image/projects/makanboleh/makanboleh-logo.png";
+import mernfolioLogoImg from "../assets/image/projects/mernfolio/mernfolio-logo.png";
+import tasktopiaLogoImg from "../assets/image/projects/tasktopia/tasktopia-logo.png";
+
+const setImgList = (img) => {
+    const imgList = [];
+    for (let i = 0; i < 10; i++) {
+        imgList.push(img);
+    }
+    return imgList;
+};
+
 export const projectsData = [
     {
         name: "PokéGen",
@@ -24,6 +38,12 @@ export const projectsData = [
             {
                 name: "Github",
                 link: "https://github.com/tan-sd/pokemon-random-generator",
+            },
+        ],
+        panel: [
+            {
+                img: fetchPokemon(10),
+                size: '5rem',
             },
         ],
     },
@@ -56,6 +76,12 @@ export const projectsData = [
             {
                 name: "Github",
                 link: "https://github.com/tan-sd/bojio",
+            },
+        ],
+        panel: [
+            {
+                img: setImgList(bojioLogoImg),
+                size: '1.5rem',
             },
         ],
     },
@@ -98,6 +124,12 @@ export const projectsData = [
                 link: "https://github.com/tan-sd/mern-portfolio",
             },
         ],
+        panel: [
+            {
+                img: setImgList(mernfolioLogoImg),
+                size: '3.5rem',
+            },
+        ],
     },
     {
         name: "MakanBoleh",
@@ -134,6 +166,12 @@ export const projectsData = [
                 link: "https://github.com/tan-sd/makan-boleh",
             },
         ],
+        panel: [
+            {
+                img: setImgList(makanbolehLogoImg),
+                size: '2rem',
+            },
+        ],
     },
     {
         name: "Tasktopia",
@@ -164,6 +202,12 @@ export const projectsData = [
             {
                 name: "Github",
                 link: "https://github.com/tan-sd/tasktopia",
+            },
+        ],
+        panel: [
+            {
+                img: setImgList(tasktopiaLogoImg),
+                size: '3rem',
             },
         ],
     },
