@@ -27,16 +27,12 @@
 }
 
 @font-face {
-    font-family: sofia-pro-regular;
-    src: url("./assets/font/sofia-pro/sofia-pro-regular.otf");
+    font-family: sofia-pro-light;
+    src: url("./assets/font/sofia-pro/sofia-pro-light.otf");
     font-display: swap;
 }
 
 /* */
-
-* {
-    font-family: sofia-pro-regular;
-}
 
 :root {
     font-size: 18px;
@@ -48,7 +44,7 @@ body {
     --font-size-xlarge: 2rem;
     --font-size-large: 1.5rem;
     --font-size-medium: 1.1rem;
-    --font-size-small: 0.7rem;
+    --font-size-small: 0.9rem;
     --font-size-xsmall: 0.5rem;
     --letter-spacing: -1.45px;
     --color-hover: #fd5a1e;
@@ -62,6 +58,7 @@ body {
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    font-family: sofia-pro-light;
 }
 
 body::-webkit-scrollbar {
@@ -99,6 +96,7 @@ html {
     position: relative;
     display: inline-block;
     font-size: var(--font-size-small);
+    font-family: sofia-pro-medium;
     color: var(--color-text);
     cursor: pointer;
     text-decoration: none;
@@ -157,7 +155,6 @@ html {
 .menu-link {
     position: relative;
     display: inline-block;
-    font-size: var(--font-size-small);
     font-weight: 600;
     color: var(--color-text);
     cursor: pointer;
@@ -323,7 +320,7 @@ html {
 }
 
 .project__content-text {
-    margin: 0;
+    margin: 20px 0px;
     line-height: 1;
     max-width: 640px !important;
     font-size: var(--font-size-medium);
@@ -332,6 +329,8 @@ html {
 
 .project__content-tools-title {
     font-size: var(--font-size-small);
+    font-family: sofia-pro-medium;
+    margin: 30px 0 0 0;
 }
 
 .project__content-tools {
@@ -352,6 +351,7 @@ html {
 
 .project__content-tools li div img {
     vertical-align: middle;
+    margin-right: 0.45rem;
 }
 
 .project__content-link {
@@ -363,6 +363,7 @@ html {
     font-size: var(--font-size-small);
     margin-right: 1em;
     font-weight: 600;
+    font-family: sofia-pro-medium;
 }
 
 .project__content-link::after {
@@ -477,6 +478,7 @@ html {
 .about-title {
     font-size: var(--font-size-xlarge);
     letter-spacing: var(--letter-spacing);
+    font-family: sofia-pro-medium;
     font-weight: 600;
 }
 
@@ -517,7 +519,7 @@ html {
         --font-size-xlarge: 11vh;
         --font-size-large: 3.5vw;
         --font-size-medium: 2vw;
-        --font-size-small: 1vw;
+        --font-size-small: 1.65vw;
         --font-size-xsmall: 1.25vw;
     }
 }
