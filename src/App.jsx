@@ -55,6 +55,7 @@ function App() {
                     projectText={project.text}
                     projectTools={project.tools}
                     projectLinks={project.links}
+                    projectPanel={project.panel}
                     selectedProject={selectedProject}
                 />
             ))}
@@ -63,9 +64,7 @@ function App() {
                 isAboutVisible={isAboutVisible}
                 onAboutButtonClick={toggleAbout}
             />
-            <Footer
-                isNavVisible={isNavVisible}
-            />
+            <Footer isNavVisible={isNavVisible} />
             <CloseProject
                 selectedProject={selectedProject}
                 onProjectButtonClick={toggleProject}
