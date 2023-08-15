@@ -8,15 +8,20 @@ export const Project = ({
     projectText,
     projectTools,
     projectLinks,
+    projectPanel,
     selectedProject,
 }) => {
     const projectContentRef = useRef([]);
     const projectWrapRef = useRef([]);
     const projectTextRef = useRef();
+    const projectImgRef = useRef([]);
 
     useEffect(() => {
         if (selectedProject == projectName) {
             projectWrapRef.current.classList.add("project--open");
+            gsap.set(projectTextRef.current, {
+                opacity: 1,
+            });
             gsap.timeline({ defaults: { duration: 0.7, ease: "power2" } })
                 .set(projectContentRef.current, {
                     opacity: 1,
@@ -28,6 +33,15 @@ export const Project = ({
                 .to(projectContentRef.current, {
                     y: "0%",
                     rotate: 0,
+                });
+
+            gsap.timeline({ defaults: { duration: 2, ease: "expo" } })
+                .set(projectImgRef.current, {
+                    y: "300%",
+                    opacity: 1,
+                })
+                .to(projectImgRef.current, {
+                    y: "0%",
                 });
 
             const text = SplitType.create(projectTextRef.current, {
@@ -51,12 +65,99 @@ export const Project = ({
                 }
             );
         } else {
-            projectWrapRef.current.classList.remove("project--open");
+            gsap.timeline({ defaults: { duration: 0.6, ease: "expo" } })
+                .set(projectTextRef.current, {
+                    opacity: 1,
+                })
+                .to(projectTextRef.current, {
+                    opacity: 0,
+                });
+
+            gsap.timeline({ defaults: { duration: 0.6, ease: "power2" } })
+                .to([projectImgRef.current, projectContentRef.current], {
+                    y: "-150%",
+                    opacity: 0,
+                })
+                .then(() => {
+                    projectWrapRef.current.classList.remove("project--open");
+                });
         }
     }, [selectedProject, projectName]);
 
     return (
         <div className="project__container" ref={projectWrapRef}>
+            <div className="panel">
+                <img
+                    className="panel__img pos-1"
+                    src={projectPanel[0].img[0]}
+                    alt=""
+                    ref={(el) => (projectImgRef.current[0] = el)}
+                    style={{ height: projectPanel[0].size, width: "auto" }}
+                />
+                <img
+                    className="panel__img pos-2"
+                    src={projectPanel[0].img[1]}
+                    alt=""
+                    ref={(el) => (projectImgRef.current[1] = el)}
+                    style={{ height: projectPanel[0].size, width: "auto" }}
+                />
+                <img
+                    className="panel__img pos-3"
+                    src={projectPanel[0].img[2]}
+                    alt=""
+                    ref={(el) => (projectImgRef.current[2] = el)}
+                    style={{ height: projectPanel[0].size, width: "auto" }}
+                />
+                <img
+                    className="panel__img pos-4"
+                    src={projectPanel[0].img[3]}
+                    alt=""
+                    ref={(el) => (projectImgRef.current[3] = el)}
+                    style={{ height: projectPanel[0].size, width: "auto" }}
+                />
+                <img
+                    className="panel__img pos-5"
+                    src={projectPanel[0].img[4]}
+                    alt=""
+                    ref={(el) => (projectImgRef.current[4] = el)}
+                    style={{ height: projectPanel[0].size, width: "auto" }}
+                />
+                <img
+                    className="panel__img pos-6"
+                    src={projectPanel[0].img[5]}
+                    alt=""
+                    ref={(el) => (projectImgRef.current[5] = el)}
+                    style={{ height: projectPanel[0].size, width: "auto" }}
+                />
+                <img
+                    className="panel__img pos-7"
+                    src={projectPanel[0].img[6]}
+                    alt=""
+                    ref={(el) => (projectImgRef.current[6] = el)}
+                    style={{ height: projectPanel[0].size, width: "auto" }}
+                />
+                <img
+                    className="panel__img pos-8"
+                    src={projectPanel[0].img[7]}
+                    alt=""
+                    ref={(el) => (projectImgRef.current[7] = el)}
+                    style={{ height: projectPanel[0].size, width: "auto" }}
+                />
+                <img
+                    className="panel__img pos-9"
+                    src={projectPanel[0].img[8]}
+                    alt=""
+                    ref={(el) => (projectImgRef.current[8] = el)}
+                    style={{ height: projectPanel[0].size, width: "auto" }}
+                />
+                <img
+                    className="panel__img pos-10"
+                    src={projectPanel[0].img[9]}
+                    alt=""
+                    ref={(el) => (projectImgRef.current[9] = el)}
+                    style={{ height: projectPanel[0].size, width: "auto" }}
+                />
+            </div>
             <div className="project__content">
                 <h3 className="project__content-title oh">
                     <span
