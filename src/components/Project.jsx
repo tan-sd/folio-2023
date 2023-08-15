@@ -190,8 +190,6 @@ export const Project = ({
                                 <img
                                     src={tool.img}
                                     width="25px"
-                                    alt=""
-                                    style={{ marginRight: "5px" }}
                                 />
                                 {tool.name}
                             </div>
