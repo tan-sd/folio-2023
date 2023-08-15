@@ -227,5 +227,6 @@ Project.propTypes = {
     projectText: PropTypes.string.isRequired,
     projectTools: PropTypes.array.isRequired,
     projectLinks: PropTypes.array.isRequired,
+    projectPanel: PropTypes.array.isRequired,
     selectedProject: PropTypes.string,
 };
