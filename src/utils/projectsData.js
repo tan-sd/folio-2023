@@ -4,6 +4,9 @@ import makanbolehLogoImg from "../assets/image/projects/makanboleh/makanboleh-lo
 import mernfolioLogoImg from "../assets/image/projects/mernfolio/mernfolio-logo.png";
 import tasktopiaLogoImg from "../assets/image/projects/tasktopia/tasktopia-logo.png";
 
+import { Pokegen } from "../assets/model/pokegen/Pokegen";
+import { Tasktopia } from "../assets/model/tasktopia/Tasktopia";
+
 const setImgList = (img) => {
     const imgList = [];
     for (let i = 0; i < 10; i++) {
@@ -43,7 +46,7 @@ export const projectsData = [
         panel: [
             {
                 img: fetchPokemon(10),
-                size: '5rem',
+                size: "5rem",
             },
         ],
     },
@@ -81,7 +84,7 @@ export const projectsData = [
         panel: [
             {
                 img: setImgList(bojioLogoImg),
-                size: '1.5rem',
+                size: "1.5rem",
             },
         ],
     },
@@ -127,7 +130,7 @@ export const projectsData = [
         panel: [
             {
                 img: setImgList(mernfolioLogoImg),
-                size: '3.5rem',
+                size: "3.5rem",
             },
         ],
     },
@@ -169,7 +172,7 @@ export const projectsData = [
         panel: [
             {
                 img: setImgList(makanbolehLogoImg),
-                size: '2rem',
+                size: "2rem",
             },
         ],
     },
@@ -207,7 +210,7 @@ export const projectsData = [
         panel: [
             {
                 img: setImgList(tasktopiaLogoImg),
-                size: '3rem',
+                size: "3rem",
             },
         ],
     },
