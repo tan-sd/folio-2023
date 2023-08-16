@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navbar } from "./components/Navbar";
 import { Menu } from "./components/Menu";
 import { Project } from "./components/Project";
+import { Experience } from "./experience/Experience";
 import { About } from "./components/About";
 import { Footer } from "./components/Footer";
 import { CloseProject } from "./components/CloseProject";
@@ -56,9 +57,11 @@ function App() {
                     projectTools={project.tools}
                     projectLinks={project.links}
                     projectPanel={project.panel}
+                    projectModel={project.canvas}
                     selectedProject={selectedProject}
                 />
             ))}
+            <Experience selectedProject={selectedProject} />
             <About
                 onNavButtonClick={toggleNav}
                 isAboutVisible={isAboutVisible}
