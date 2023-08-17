@@ -311,6 +311,7 @@ canvas {
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
+
 }
 
 .project__canvas {
@@ -584,10 +585,10 @@ canvas {
         /* border: 1px solid black; */
         /* top: 50%; */
         right: 0;
-        top: 20%;
+        top: 15%;
         transform: translate(0);
         position: absolute;
         width: 50%;
-        height: 59%;
+        height: 70%;
     }
 }
