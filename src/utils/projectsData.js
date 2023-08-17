@@ -4,9 +4,6 @@ import makanbolehLogoImg from "../assets/image/projects/makanboleh/makanboleh-lo
 import mernfolioLogoImg from "../assets/image/projects/mernfolio/mernfolio-logo.png";
 import tasktopiaLogoImg from "../assets/image/projects/tasktopia/tasktopia-logo.png";
 
-import { Pokegen } from "../assets/model/pokegen/Pokegen";
-import { Tasktopia } from "../assets/model/tasktopia/Tasktopia";
-
 const setImgList = (img) => {
     const imgList = [];
     for (let i = 0; i < 10; i++) {
