@@ -8,7 +8,7 @@ import {
 import { Suspense, useEffect, useRef, useState } from "react";
 
 import { PokeGen } from "../assets/model/pokegen/Pokegen";
-import { Bojio } from "../assets/model/bojio/bojio";
+import { Bojio } from "../assets/model/bojio/Bojio";
 import { Makanboleh } from "../assets/model/makanboleh/Makanboleh";
 import { Mernfolio } from "../assets/model/mernfolio/Mernfolio";
 import { Tasktopia } from "../assets/model/tasktopia/Tasktopia";
