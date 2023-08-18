@@ -3,10 +3,14 @@ import {
     PerspectiveCamera,
     PresentationControls,
     useGLTF,
+    useProgress,
 } from "@react-three/drei";
 import { Suspense, useEffect, useRef, useState } from "react";
 
 import { PokeGen } from "../assets/model/pokegen/Pokegen";
+import { Bojio } from "../assets/model/bojio/bojio";
+import { Makanboleh } from "../assets/model/makanboleh/Makanboleh";
+import { Mernfolio } from "../assets/model/mernfolio/Mernfolio";
 import { Tasktopia } from "../assets/model/tasktopia/Tasktopia";
 
 export const Experience = ({ selectedProject }) => {
@@ -26,10 +30,21 @@ export const Experience = ({ selectedProject }) => {
             setProjectVisibility({
                 ...projectVisibility,
                 pokegen: selectedProject === "PokéGen",
+                bojio: selectedProject === "BOJIO",
+                makanboleh: selectedProject === "MakanBoleh",
+                mernfolio: selectedProject === "MERNfolio",
                 tasktopia: selectedProject === "Tasktopia",
             });
         } else {
             projectCanvasRef.current.classList.remove("project--open");
+            setProjectVisibility({
+                ...projectVisibility,
+                pokegen: selectedProject === false,
+                bojio: selectedProject === false,
+                makanboleh: selectedProject === false,
+                mernfolio: selectedProject === false,
+                tasktopia: selectedProject === false,
+            });
         }
     }, [selectedProject]);
 
@@ -41,6 +56,19 @@ export const Experience = ({ selectedProject }) => {
                 <Suspense fallback={null}>
                     <PresentationControls snap={true}>
                         <PokeGen visibleStatus={projectVisibility.pokegen} />
+                    </PresentationControls>
+                    <PresentationControls snap={true}>
+                        <Bojio visibleStatus={projectVisibility.bojio} />
+                    </PresentationControls>
+                    <PresentationControls snap={true}>
+                        <Makanboleh
+                            visibleStatus={projectVisibility.makanboleh}
+                        />
+                    </PresentationControls>
+                    <PresentationControls snap={true}>
+                        <Mernfolio
+                            visibleStatus={projectVisibility.mernfolio}
+                        />
                     </PresentationControls>
                     <PresentationControls snap={true}>
                         <Tasktopia
