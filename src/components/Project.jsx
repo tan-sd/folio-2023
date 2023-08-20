@@ -181,6 +181,7 @@ export const Project = ({
                         </Suspense>
                     </Canvas> */}
                 {/* </div> */}
+                <div className="project__canvas"></div>
                 <div className="project__content">
                     <h3 className="project__content-title oh">
                         <span
