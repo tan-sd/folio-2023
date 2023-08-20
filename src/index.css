@@ -366,10 +366,9 @@ canvas {
     list-style: none;
     display: flex;
     flex-direction: row;
-    /* gap: 10px; */
-    width: 17rem;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 100%;
 }
 
 .project__content-tools li {
