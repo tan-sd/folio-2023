@@ -34,6 +34,12 @@
 
 /* */
 
+*,
+:after,
+:before {
+    box-sizing: border-box;
+}
+
 :root {
     font-size: 18px;
 }
@@ -45,7 +51,7 @@ body {
     --font-size-large: 1.5rem;
     --font-size-medium: 1.1rem;
     --font-size-small: 0.9rem;
-    --font-size-xsmall: 0.7rem;
+    --font-size-xsmall: 0.75rem;
     --letter-spacing: -1.45px;
     --color-hover: #fd5a1e;
     --color-menu: #000;
@@ -55,7 +61,7 @@ body {
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     -ms-overflow-style: none;
     scrollbar-width: none;
     font-family: sofia-pro-light;
@@ -72,7 +78,7 @@ html {
 
 canvas {
     touch-action: none;
-  }
+}
 
 .unbutton {
     background: none;
@@ -299,45 +305,33 @@ canvas {
  */
 
 .project__container {
-    /* position: absolute; */
     pointer-events: none;
     opacity: 0;
 }
 
 .project__content-container {
-    /* border: 1px solid black; */
-    display: block;
+    padding: 1.5rem 1.5rem 2rem;
+    margin: 0 auto;
     position: absolute;
-    top: 70%;
+    width: 70%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-
+    transform: translate(-50%);
 }
 
 .project__canvas {
-    /* border: 1px solid black; */
-    /* top: 50%; */
-    left: 50%;
-    /* top: 20%; */
-    transform: translate(-50%);
-    position: absolute;
-    width: 50%;
-    height: 40%;
-    display: none;
+    width: 100%;
+    height: 400px;
 }
 
-.project__content {
-    /* padding: 0 0 0 1.5rem; */
-    padding: 0;
-    margin: 0;
-    /* position: absolute; */
-    /* top: 50%; */
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
-    /* width: 80%; */
-    /* justify-content: center; */
-    /* bottom: 10%; */
+.project__canvas-model {
+    display: none;
+    height: 400px;
+    /* position: absolute;
+    top: 0;
+    width: 50%;
+    height: 50%;
+    left: 50%;
+    transform: translate(-50%); */
 }
 
 .project__content-title {
@@ -363,12 +357,12 @@ canvas {
 
 .project__content-tools {
     padding-left: 0px;
+    width: 19.5rem;
     list-style: none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 100%;
 }
 
 .project__content-tools li {
@@ -380,7 +374,7 @@ canvas {
 
 .project__content-tools li div img {
     vertical-align: middle;
-    margin-right: 0.45rem;
+    margin-right: 5px;
 }
 
 .project__content-tools-name {
@@ -547,47 +541,53 @@ canvas {
  * Responsive
  */
 
+@media screen and (max-width: 45em) {
+    .project__content-container {
+        width: 100%;
+    }
+}
+
 @media screen and (min-width: 65em) {
     body {
         --font-size-xlarge: 11vh;
         --font-size-large: 3.5vw;
         --font-size-medium: 2vw;
         --font-size-small: 1.65vw;
-        --font-size-xsmall: 1.25vw;
-    }
-
-    .project__content-tools {
-        width: 60%;
+        --font-size-xsmall: 1vw;
     }
 
     .project__content-container {
+        position: absolute;
         display: flex;
-        top: 50%;
+        top: 27%;
+        flex-direction: row-reverse;
         width: 100%;
+        padding: 0 0 0 8rem;
+    }
+
+    .project__content-tools {
+        width: 21.5rem;
+    }
+
+    /* .project__content {
+        width: 50%;
+        padding: 0 0 0 8rem;
+    } */
+
+    .project__canvas {
+        width: 50%;
     }
 
     .project__content {
-        /* padding: 0 0 0 1.5rem; */
-        padding: 1.5rem 0 2rem 6rem;
-        margin: 0;
         width: 50%;
-        /* position: absolute; */
-        /* top: 50%; */
-        /* left: 50%; */
-        /* transform: translate(-50%, -50%); */
-        /* width: 80%; */
-        /* justify-content: center; */
-        /* bottom: 10%; */
     }
 
-    .project__canvas {
-        /* border: 1px solid black; */
-        /* top: 50%; */
-        right: 0;
-        top: 15%;
-        transform: translate(0);
+    .project__canvas-model {
+        padding: 1.5rem 1.5rem 0 0;
         position: absolute;
+        right: 0;
         width: 50%;
-        height: 70%;
+        height: 100%;
+        top: 0;
     }
 }
