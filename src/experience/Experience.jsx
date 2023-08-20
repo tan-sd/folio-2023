@@ -49,10 +49,10 @@ export const Experience = ({ selectedProject }) => {
     }, [selectedProject]);
 
     return (
-        <div className="project__canvas" ref={projectCanvasRef}>
+        <div className="project__canvas-model" ref={projectCanvasRef}>
             <Canvas>
                 <ambientLight color={"#ffffff"} intensity={1} />
-                <pointLight position={[-1, -5, 10]} intensity={150} />
+                <pointLight position={[-1, -5, 10]} intensity={250} />
                 <Suspense fallback={null}>
                     <PresentationControls snap={true}>
                         <PokeGen visibleStatus={projectVisibility.pokegen} />
