@@ -311,7 +311,7 @@ canvas {
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
+    width: 85%;
 
 }
 
@@ -351,7 +351,8 @@ canvas {
     margin: 20px 0px;
     line-height: 1;
     font-size: var(--font-size-medium);
-    letter-spacing: var(--letter-spacing);
+    -webkit-backdrop-filter: blur(10px) saturate(70%);
+    backdrop-filter: blur(10px) saturate(70%);
 }
 
 .project__content-tools-title {
@@ -374,6 +375,8 @@ canvas {
 .project__content-tools li {
     flex-basis: 30%;
     margin-bottom: 10px;
+    -webkit-backdrop-filter: blur(10px) saturate(70%);
+    backdrop-filter: blur(10px) saturate(70%);
 }
 
 .project__content-tools li div img {
