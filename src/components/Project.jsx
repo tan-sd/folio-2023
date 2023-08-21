@@ -22,6 +22,7 @@ export const Project = ({
     useEffect(() => {
         if (selectedProject == projectName) {
             projectWrapRef.current.classList.add("project--open");
+            document.documentElement.style.setProperty('--overflow-setting', 'visible');
             gsap.set(projectTextRef.current, {
                 opacity: 1,
             });
