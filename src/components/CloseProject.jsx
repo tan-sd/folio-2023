@@ -24,6 +24,7 @@ export const CloseProject = ({
                     rotate: 0,
                 });
         } else {
+            document.documentElement.style.setProperty('--overflow-setting', 'hidden');
             gsap.timeline({ defaults: { duration: 0.7, ease: "power2" } })
                 .to(projectCloseCtrlRef.current, {
                     y: "-150%",
