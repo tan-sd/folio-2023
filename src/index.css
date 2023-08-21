@@ -15,12 +15,6 @@
 }
 
 @font-face {
-    font-family: thunder-bold;
-    src: url("./assets/font/thunder/thunder-bold.ttf");
-    font-display: swap;
-}
-
-@font-face {
     font-family: sofia-pro-medium;
     src: url("./assets/font/sofia-pro/sofia-pro-medium.otf");
     font-display: swap;
@@ -173,8 +167,6 @@ canvas {
     color: var(--color-text);
     cursor: pointer;
     text-decoration: none;
-    /* font-weight: 600; */
-    /* margin-top: 15px; */
     letter-spacing: 0.1em;
     font-family: sofia-pro-medium;
 }
@@ -195,12 +187,8 @@ canvas {
  */
 
 .menu-container {
-    /* position: absolute; */
-    /* display: flex; */
-    /* flex-direction: column; */
     overflow: hidden;
     pointer-events: none;
-    /* z-index: 100; */
     opacity: 0;
     width: 100%;
     align-content: center;
@@ -220,7 +208,6 @@ canvas {
     line-height: 1;
     display: block;
     pointer-events: none;
-    /* position: relative; */
 }
 
 .menu__item-link {
@@ -565,11 +552,6 @@ canvas {
     .project__content-tools {
         width: 22.5rem;
     }
-
-    /* .project__content {
-        width: 50%;
-        padding: 0 0 0 8rem;
-    } */
 
     .project__canvas {
         width: 50%;
