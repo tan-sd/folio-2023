@@ -42,6 +42,7 @@
 
 :root {
     font-size: 18px;
+    --overflow-setting: hidden;
 }
 
 body {
@@ -61,10 +62,11 @@ body {
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
     font-family: sofia-pro-light;
+    overflow: var(--overflow-setting);
 }
 
 body::-webkit-scrollbar {
@@ -72,8 +74,9 @@ body::-webkit-scrollbar {
 }
 
 html {
-    overflow-x: hidden;
     scroll-behavior: smooth;
+    height: 100vh;
+    width: 100vw;
 }
 
 canvas {
@@ -195,11 +198,11 @@ canvas {
     /* position: absolute; */
     /* display: flex; */
     /* flex-direction: column; */
+    overflow: hidden;
     pointer-events: none;
     /* z-index: 100; */
     opacity: 0;
     width: 100%;
-    /* height: 100vh; */
     align-content: center;
     justify-content: center;
     counter-reset: menucounter;
@@ -326,12 +329,6 @@ canvas {
 .project__canvas-model {
     display: none;
     height: 400px;
-    /* position: absolute;
-    top: 0;
-    width: 50%;
-    height: 50%;
-    left: 50%;
-    transform: translate(-50%); */
 }
 
 .project__content-title {
@@ -566,7 +563,7 @@ canvas {
     }
 
     .project__content-tools {
-        width: 21.5rem;
+        width: 22.5rem;
     }
 
     /* .project__content {
@@ -589,5 +586,21 @@ canvas {
         width: 50%;
         height: 100%;
         top: 0;
+    }
+}
+
+@media screen and (min-width: 2007px) {
+    .project__content-tools {
+        width: 27.5rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .project__content-tools-name {
+        font-size: 10px;
+    }
+
+    .project__content-tools {
+        width: 15rem;
     }
 }
