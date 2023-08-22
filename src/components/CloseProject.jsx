@@ -7,13 +7,13 @@ export const CloseProject = ({
     onProjectButtonClick,
     onMenuButtonClick,
 }) => {
-    const projectCloseCtrlRef = useRef([]);
+    const projectCloseCtrlRef = useRef();
+    const buttonWrapRef = useRef();
 
     useEffect(() => {
         if (selectedProject !== null) {
-            projectCloseCtrlRef.current.forEach((el) => {
-                el.classList.add("project--open");
-            });
+            projectCloseCtrlRef.current.classList.add("project--open");
+            buttonWrapRef.current.classList.add("project--open");
             gsap.timeline({ defaults: { duration: 1.2, ease: "expo" } })
                 .set(projectCloseCtrlRef.current, {
                     y: "150%",
@@ -24,7 +24,10 @@ export const CloseProject = ({
                     rotate: 0,
                 });
         } else {
-            document.documentElement.style.setProperty('--overflow-setting', 'hidden');
+            document.documentElement.style.setProperty(
+                "--overflow-setting",
+                "hidden"
+            );
             gsap.timeline({ defaults: { duration: 0.7, ease: "power2" } })
                 .to(projectCloseCtrlRef.current, {
                     y: "-150%",
@@ -35,9 +38,10 @@ export const CloseProject = ({
                     },
                 })
                 .then(() => {
-                    projectCloseCtrlRef.current.forEach((el) => {
-                        el.classList.remove("project--open");
-                    });
+                    projectCloseCtrlRef.current.classList.remove(
+                        "project--open"
+                    );
+                    buttonWrapRef.current.classList.remove("project--open");
                 });
         }
     }, [selectedProject]);
@@ -45,17 +49,13 @@ export const CloseProject = ({
     return (
         <button
             className="close oh unbutton project__content-close"
-            ref={(el) => (projectCloseCtrlRef.current[0] = el)}
+            ref={buttonWrapRef}
             onClick={() => {
                 onProjectButtonClick(null);
                 onMenuButtonClick();
             }}
         >
-            <span
-                className="oh__inner"
-                ref={(el) => (projectCloseCtrlRef.current[1] = el)}
-            >
-                {/* &#8617; */}
+            <span className="oh__inner" ref={projectCloseCtrlRef}>
                 &#10005;
             </span>
         </button>
