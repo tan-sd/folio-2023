@@ -16,6 +16,9 @@ export const Menu = ({
     const isAnimating = false;
 
     useEffect(() => {
+        // gsap.set(menuRef.current, {
+        //     opacity: 0,
+        // });
         if (isMenuVisible) {
             ohInnerRef.current.forEach((el) => {
                 el.classList.add("menu--open");

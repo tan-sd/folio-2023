@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
 import { gsap } from "gsap";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, Suspense } from "react";
 import SplitType from "split-type";
+import { Canvas } from "@react-three/fiber";
+import { PerspectiveCamera, PresentationControls } from "@react-three/drei";
 
 export const Project = ({
     projectName,
@@ -9,6 +11,7 @@ export const Project = ({
     projectTools,
     projectLinks,
     projectPanel,
+    projectModel,
     selectedProject,
 }) => {
     const projectContentRef = useRef([]);
@@ -19,10 +22,7 @@ export const Project = ({
     useEffect(() => {
         if (selectedProject == projectName) {
             projectWrapRef.current.classList.add("project--open");
-            document.documentElement.style.setProperty(
-                "--overflow-setting",
-                "visible"
-            );
+            document.documentElement.style.setProperty('--overflow-setting', 'visible');
             gsap.set(projectTextRef.current, {
                 opacity: 1,
             });
@@ -163,6 +163,25 @@ export const Project = ({
                 />
             </div>
             <div className="project__content-container">
+                {/* <div className="project__canvas"> */}
+                    {/* <Canvas>
+                        <ambientLight color={"#ffffff"} intensity={1.7} />
+                        <pointLight
+                            position={[-0.5, -0.5, 2.5]}
+                            intensity={2}
+                        />
+                        <Suspense fallback={null}>
+                            <PresentationControls snap={true}>
+                                <PerspectiveCamera
+                                    rotation={[0, -2, 0]}
+                                    position={[0.5, -1.35, 1.5]}
+                                >
+                                    <projectModel.model visible={false}/>
+                                </PerspectiveCamera>
+                            </PresentationControls>
+                        </Suspense>
+                    </Canvas> */}
+                {/* </div> */}
                 <div className="project__canvas"></div>
                 <div className="project__content">
                     <h3 className="project__content-title oh">
