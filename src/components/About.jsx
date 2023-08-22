@@ -107,9 +107,6 @@ export const About = ({
                         />
                         , I&apos;m
                         <span className="about-name"> Sheng Da</span>
-                        {/* <div className="tooltip">
-                            You can also call me Caleb!
-                        </div> */}
                     </span>
                 </div>
                 <div className="about-text oh">
@@ -179,11 +176,6 @@ export const About = ({
                             Email
                         </span>
                     </a>
-                    {/* <a className="details__content-link oh" href="" target='_blank' rel="referrer">
-                            <span className="oh__inner" ref={(el) => (aboutLinksRef.current[4] = el)}>
-                                Resume
-                            </span>
-                        </a> */}
                 </div>
             </div>
             <button

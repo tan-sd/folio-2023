@@ -61,10 +61,10 @@ export const Mernfolio = ({ visibleStatus }) => {
                 .clone()
                 .add(displacement);
 
-                const maxX = 1.35;
-                const minX = -1.30;
-                const maxY = 2.53;
-                const minY = 0.67;
+            const maxX = 1.35;
+            const minX = -1.3;
+            const maxY = 2.53;
+            const minY = 0.67;
 
             if (logoPosition2.x > maxX || logoPosition2.x < minX) {
                 dir2.x *= -1;
@@ -81,10 +81,10 @@ export const Mernfolio = ({ visibleStatus }) => {
                 .clone()
                 .add(displacement);
 
-                const maxX = 1.33;
-                const minX = -1.30;
-                const maxY = 2.45;
-                const minY = 0.67;
+            const maxX = 1.33;
+            const minX = -1.3;
+            const maxY = 2.45;
+            const minY = 0.67;
 
             if (logoPosition3.x > maxX || logoPosition3.x < minX) {
                 dir3.x *= -1;
@@ -101,10 +101,10 @@ export const Mernfolio = ({ visibleStatus }) => {
                 .clone()
                 .add(displacement);
 
-                const maxX = 1.35;
-                const minX = -1.35;
-                const maxY = 2.45;
-                const minY = 0.75;
+            const maxX = 1.35;
+            const minX = -1.35;
+            const maxY = 2.45;
+            const minY = 0.75;
 
             if (logoPosition4.x > maxX || logoPosition4.x < minX) {
                 dir4.x *= -1;
@@ -123,48 +123,43 @@ export const Mernfolio = ({ visibleStatus }) => {
             rotation={[0, 0, 0]}
             position={[0, 0, 0]}
             scale={1.15}
-            visible={visibleStatus}>
+            visible={visibleStatus}
+        >
+            <primitive object={gltf.scene} />
+            <Plane
+                args={[0.5, 0.5]}
+                ref={logo1Ref}
+                rotation={[0, 0, 0]}
+                position={[-0.1, 1.2, -1.11]}
+            >
+                <meshStandardMaterial map={mongoTexture} transparent />
+            </Plane>
+            <Plane
+                args={[0.5, 0.5]}
+                ref={logo2Ref}
+                rotation={[0, 0, 0]}
+                position={[0.4, 1.1, -1.11]}
+            >
+                <meshStandardMaterial map={expressTexture} transparent />
+            </Plane>
 
+            <Plane
+                args={[0.5, 0.5]}
+                ref={logo3Ref}
+                rotation={[0, 0, 0]}
+                position={[0.95, 0.97, -1.11]}
+            >
+                <meshStandardMaterial map={reactTexture} transparent />
+            </Plane>
 
-                <primitive
-            object={gltf.scene}
-        />
-        <Plane
-        args={[0.5, 0.5]}
-        ref={logo1Ref}
-        rotation={[0, 0, 0]}
-        position={[-0.1, 1.2, -1.11]}>
-        <meshStandardMaterial map={mongoTexture} transparent />
-    </Plane>
-    <Plane
-                        args={[0.5, 0.5]}
-                        ref={logo2Ref}
-                        rotation={[0, 0, 0]}
-                        position={[0.4, 1.1, -1.11]}
-                    >
-                        <meshStandardMaterial
-                            map={expressTexture}
-                            transparent
-                        />
-                    </Plane>
-
-                    <Plane
-                        args={[0.5, 0.5]}
-                        ref={logo3Ref}
-                        rotation={[0, 0, 0]}
-                        position={[0.95, 0.97, -1.11]}
-                    >
-                        <meshStandardMaterial map={reactTexture} transparent />
-                    </Plane>
-
-                    <Plane
-                        args={[0.5, 0.5]}
-                        ref={logo4Ref}
-                        rotation={[0, 0, 0]}
-                        position={[0.4, 0.85, -1.11]}
-                    >
-                        <meshStandardMaterial map={nodejsTexture} transparent />
-                    </Plane>
-    </mesh>
+            <Plane
+                args={[0.5, 0.5]}
+                ref={logo4Ref}
+                rotation={[0, 0, 0]}
+                position={[0.4, 0.85, -1.11]}
+            >
+                <meshStandardMaterial map={nodejsTexture} transparent />
+            </Plane>
+        </mesh>
     );
 };
