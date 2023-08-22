@@ -522,22 +522,6 @@ canvas {
 /* */
 
 /**
- * Room
- */
-
-.room-container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 100%;
-    z-index: -1;
-}
-
-/* */
-
-/**
  * Responsive
  */
 
