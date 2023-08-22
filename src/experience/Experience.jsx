@@ -1,11 +1,7 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import {
-    PerspectiveCamera,
-    PresentationControls,
-    useGLTF,
-    useProgress,
-} from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { PresentationControls } from "@react-three/drei";
 import { Suspense, useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 
 import { PokeGen } from "../assets/model/pokegen/Pokegen";
 import { Bojio } from "../assets/model/bojio/Bojio";
@@ -79,4 +75,8 @@ export const Experience = ({ selectedProject }) => {
             </Canvas>
         </div>
     );
+};
+
+Experience.propTypes = {
+    selectedProject: PropTypes.string,
 };
