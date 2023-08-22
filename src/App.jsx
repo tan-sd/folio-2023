@@ -45,7 +45,7 @@ function App() {
             />
             <div className="canvas-container">
                 <Canvas>
-                    <Screen />
+                    <Screen isMenuVisible={isMenuVisible} isAboutVisible={isAboutVisible} selectedProject={selectedProject} />
                 </Canvas>
             </div>
             <Menu
