@@ -10,6 +10,13 @@ export const CloseProject = ({
     const projectCloseCtrlRef = useRef();
     const buttonWrapRef = useRef();
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
     useEffect(() => {
         if (selectedProject !== null) {
             projectCloseCtrlRef.current.classList.add("project--open");
@@ -41,6 +48,7 @@ export const CloseProject = ({
                     projectCloseCtrlRef.current.classList.remove(
                         "project--open"
                     );
+                    scrollToTop();
                     buttonWrapRef.current.classList.remove("project--open");
                 });
         }
