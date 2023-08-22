@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Navbar } from "./components/Navbar";
+import { Screen } from "./components/Screen";
 import { Menu } from "./components/Menu";
 import { Project } from "./components/Project";
 import { Experience } from "./experience/Experience";
@@ -8,6 +9,7 @@ import { Footer } from "./components/Footer";
 import { CloseProject } from "./components/CloseProject";
 
 import { projectsData } from "./utils/projectsData";
+import { Canvas } from "@react-three/fiber";
 
 function App() {
     const [isNavVisible, setIsNavVisible] = useState(true);
@@ -41,6 +43,11 @@ function App() {
                 isAboutVisible={isAboutVisible}
                 onAboutButtonClick={toggleAbout}
             />
+            <div className="canvas-container">
+                <Canvas>
+                    <Screen />
+                </Canvas>
+            </div>
             <Menu
                 onNavButtonClick={toggleNav}
                 isMenuVisible={isMenuVisible}
