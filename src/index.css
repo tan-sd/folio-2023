@@ -3,18 +3,6 @@
  */
 
 @font-face {
-    font-family: sf-pro-display-regular;
-    src: url("./assets/font/sf-pro-display/sf-pro-display-regular.otf");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: sf-pro-display-bold;
-    src: url("./assets/font/sf-pro-display/sf-pro-display-bold.otf");
-    font-display: swap;
-}
-
-@font-face {
     font-family: sofia-pro-medium;
     src: url("./assets/font/sofia-pro/sofia-pro-medium.otf");
     font-display: swap;
@@ -538,6 +526,7 @@ canvas {
     left: 50%;
     top: 55%;
     transform: translate(-50%, -50%);
+    z-index: -1;
 }
 
 /**
