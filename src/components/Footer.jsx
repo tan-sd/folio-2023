@@ -2,12 +2,12 @@ import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { gsap } from "gsap";
 
-export const Footer = ({ isNavVisible }) => {
+export const Footer = ({ isNavVisible, introStatus }) => {
     const footerWrapRef = useRef();
     const footerRef = useRef(null);
 
     useEffect(() => {
-        if (isNavVisible) {
+        if (isNavVisible && introStatus) {
             footerWrapRef.current.classList.remove("navbar-close");
             gsap.timeline({ defaults: { duration: 1.2, ease: "expo" } })
                 .set(footerRef.current, {
@@ -28,7 +28,7 @@ export const Footer = ({ isNavVisible }) => {
                 }
             );
         }
-    }, [isNavVisible]);
+    }, [isNavVisible, introStatus]);
 
     return (
         <div className="footer oh" ref={footerWrapRef}>
@@ -41,4 +41,5 @@ export const Footer = ({ isNavVisible }) => {
 
 Footer.propTypes = {
     isNavVisible: PropTypes.bool.isRequired,
+    introStatus: PropTypes.bool.isRequired,
 };

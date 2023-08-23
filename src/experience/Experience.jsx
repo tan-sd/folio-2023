@@ -21,7 +21,9 @@ export const Experience = ({ selectedProject }) => {
 
     useEffect(() => {
         if (selectedProject !== null) {
-            projectCanvasRef.current.classList.add("project--open");
+            setTimeout(() => {
+                projectCanvasRef.current.classList.add("project--open");
+            }, 400);
 
             setProjectVisibility({
                 ...projectVisibility,

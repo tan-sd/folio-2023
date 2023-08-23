@@ -8,6 +8,7 @@ export const Navbar = ({
     onNavButtonClick,
     onMenuButtonClick,
     onAboutButtonClick,
+    introStatus,
 }) => {
     const navbarRef = useRef();
     const menuOpenCtrlRef = useRef(null);
@@ -15,7 +16,7 @@ export const Navbar = ({
     const headingRef = useRef(null);
 
     useEffect(() => {
-        if (isNavVisible) {
+        if (isNavVisible && introStatus) {
             navbarRef.current.classList.remove("navbar-close");
             gsap.timeline({ defaults: { duration: 1.2, ease: "expo" } })
                 .set(
@@ -54,7 +55,7 @@ export const Navbar = ({
                 }
             );
         }
-    }, [isNavVisible]);
+    }, [isNavVisible, introStatus]);
 
     return (
         <>
@@ -102,4 +103,5 @@ Navbar.propTypes = {
     onMenuButtonClick: PropTypes.func.isRequired,
     isAboutVisible: PropTypes.bool.isRequired,
     onAboutButtonClick: PropTypes.func.isRequired,
+    introStatus: PropTypes.bool.isRequired,
 };

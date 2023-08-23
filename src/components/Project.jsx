@@ -10,6 +10,8 @@ export const Project = ({
     projectLinks,
     projectPanel,
     selectedProject,
+    disableStatus,
+    onDisableButtonClick,
 }) => {
     const projectContentRef = useRef([]);
     const projectWrapRef = useRef([]);
@@ -19,11 +21,16 @@ export const Project = ({
     useEffect(() => {
         if (selectedProject == projectName) {
             projectWrapRef.current.classList.add("project--open");
-            document.documentElement.style.setProperty('--overflow-setting', 'visible');
+            document.documentElement.style.setProperty(
+                "--overflow-setting",
+                "visible"
+            );
             gsap.set(projectTextRef.current, {
                 opacity: 1,
             });
-            gsap.timeline({ defaults: { duration: 0.7, ease: "power2" } })
+            gsap.timeline({
+                defaults: { duration: 0.7, ease: "power2", delay: 0.1 },
+            })
                 .set(projectContentRef.current, {
                     opacity: 1,
                 })
@@ -43,6 +50,11 @@ export const Project = ({
                 })
                 .to(projectImgRef.current, {
                     y: "0%",
+                })
+                .then(() => {
+                    if (disableStatus === true) {
+                        onDisableButtonClick();
+                    }
                 });
 
             const text = SplitType.create(projectTextRef.current, {
@@ -233,4 +245,6 @@ Project.propTypes = {
     projectLinks: PropTypes.array.isRequired,
     projectPanel: PropTypes.array.isRequired,
     selectedProject: PropTypes.string,
+    disableStatus: PropTypes.bool.isRequired,
+    onDisableButtonClick: PropTypes.func.isRequired,
 };

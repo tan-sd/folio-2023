@@ -1,13 +1,27 @@
 import { Html } from "@react-three/drei";
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 
 export const Screen = ({ isMenuVisible, isAboutVisible, selectedProject }) => {
-    const displayStatus = {
-        display:
-            !isMenuVisible && !isAboutVisible && !selectedProject
-                ? "block"
-                : "none",
-    };
+    const [displayStatus, setDisplayStatus] = useState({
+        display: "none",
+    });
+
+    useEffect(() => {
+        if (!isMenuVisible && !isAboutVisible && !selectedProject) {
+            const timer = setTimeout(() => {
+                setDisplayStatus({
+                    display: "block",
+                });
+            }, 500);
+
+            return () => clearTimeout(timer);
+        } else {
+            setDisplayStatus({
+                display: "none",
+            });
+        }
+    }, [isMenuVisible, isAboutVisible, selectedProject]);
 
     return (
         <Html

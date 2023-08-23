@@ -6,6 +6,8 @@ export const CloseProject = ({
     selectedProject,
     onProjectButtonClick,
     onMenuButtonClick,
+    disableStatus,
+    onDisableButtonClick,
 }) => {
     const projectCloseCtrlRef = useRef();
     const buttonWrapRef = useRef();
@@ -13,7 +15,7 @@ export const CloseProject = ({
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth'
+            behavior: "smooth",
         });
     };
 
@@ -58,9 +60,11 @@ export const CloseProject = ({
         <button
             className="close oh unbutton project__content-close"
             ref={buttonWrapRef}
+            disabled={disableStatus}
             onClick={() => {
                 onProjectButtonClick(null);
                 onMenuButtonClick();
+                onDisableButtonClick();
             }}
         >
             <span className="oh__inner" ref={projectCloseCtrlRef}>
@@ -74,4 +78,6 @@ CloseProject.propTypes = {
     selectedProject: PropTypes.string,
     onProjectButtonClick: PropTypes.func.isRequired,
     onMenuButtonClick: PropTypes.func.isRequired,
+    disableStatus: PropTypes.bool.isRequired,
+    onDisableButtonClick: PropTypes.func.isRequired,
 };
