@@ -7,6 +7,7 @@ import { Experience } from "./experience/Experience";
 import { About } from "./components/About";
 import { Footer } from "./components/Footer";
 import { CloseProject } from "./components/CloseProject";
+import { LoadingScreen } from "./components/LoadingScreen";
 
 import { projectsData } from "./utils/projectsData";
 import { Canvas } from "@react-three/fiber";
@@ -16,6 +17,8 @@ function App() {
     const [isMenuVisible, setIsMenuVisible] = useState(false);
     const [isAboutVisible, setIsAboutVisible] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
+    const [disableStatus, setDisableStatus] = useState(false);
+    const [introCompleted, setIntroCompleted] = useState(false);
 
     const toggleNav = () => {
         setIsNavVisible(!isNavVisible);
@@ -33,6 +36,14 @@ function App() {
         setSelectedProject(projectName);
     };
 
+    const toggleDisableStatus = () => {
+        setDisableStatus(!disableStatus);
+    };
+
+    const handleIntroCompleted = () => {
+        setIntroCompleted(true);
+    };
+
     return (
         <>
             <Navbar
@@ -42,10 +53,15 @@ function App() {
                 onMenuButtonClick={toggleMenu}
                 isAboutVisible={isAboutVisible}
                 onAboutButtonClick={toggleAbout}
+                introStatus={introCompleted}
             />
             <div className="canvas-container">
                 <Canvas>
-                    <Screen isMenuVisible={isMenuVisible} isAboutVisible={isAboutVisible} selectedProject={selectedProject} />
+                    <Screen
+                        isMenuVisible={isMenuVisible}
+                        isAboutVisible={isAboutVisible}
+                        selectedProject={selectedProject}
+                    />
                 </Canvas>
             </div>
             <Menu
@@ -66,6 +82,8 @@ function App() {
                     projectPanel={project.panel}
                     projectModel={project.canvas}
                     selectedProject={selectedProject}
+                    disableStatus={disableStatus}
+                    onDisableButtonClick={toggleDisableStatus}
                 />
             ))}
             <Experience selectedProject={selectedProject} />
@@ -74,12 +92,15 @@ function App() {
                 isAboutVisible={isAboutVisible}
                 onAboutButtonClick={toggleAbout}
             />
-            <Footer isNavVisible={isNavVisible} />
+            <Footer isNavVisible={isNavVisible} introStatus={introCompleted} />
             <CloseProject
                 selectedProject={selectedProject}
                 onProjectButtonClick={toggleProject}
                 onMenuButtonClick={toggleMenu}
+                disableStatus={disableStatus}
+                onDisableButtonClick={toggleDisableStatus}
             />
+            <LoadingScreen onCompleted={handleIntroCompleted} />
         </>
     );
 }
