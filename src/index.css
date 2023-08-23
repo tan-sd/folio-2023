@@ -189,6 +189,7 @@ canvas {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
 .menu__item {
@@ -208,7 +209,7 @@ canvas {
     color: var(--color-menu);
     letter-spacing: var(--letter-spacing);
     border: none;
-    background-color: var(--color-bg);
+    background-color: transparent;
     font-weight: 600;
     font-family: sofia-pro-medium;
 }
@@ -319,6 +320,8 @@ canvas {
     font-size: var(--font-size-medium);
     -webkit-backdrop-filter: blur(10px) saturate(70%);
     backdrop-filter: blur(10px) saturate(70%);
+    position: relative;
+    z-index: 1;
 }
 
 .project__content-tools-title {
@@ -527,6 +530,31 @@ canvas {
     top: 55%;
     transform: translate(-50%, -50%);
     z-index: -1;
+}
+
+/*
+ * Loading Screen
+ */
+
+.loading-screen {
+    position: absolute;
+    z-index: 999;
+    background-color: var(--color-hover) !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+}
+
+.loading-screen img {
+    height: 40px;
+    width: auto;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /**
